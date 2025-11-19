@@ -1,8 +1,4 @@
-# Phoenix-s-Blog-JNU-CST
-一个2025届JNUCST学生的初步Blog
-# Phoenix's CS Learning Journey - README
-
-# Phoenix's CS Learning Journey - 说明文档
+# Phoenix-s-Blog-JNU CST Learning Journey - 说明文档
 
 ## 📋 Project Overview / 项目概述
 
