@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phoenix's CS Learning Journey</title>
+    <title>Phoenix's CS Learning Journey - Enhanced</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -1135,6 +1135,211 @@
             background: #2980b9;
             transform: translateY(-2px);
         }
+
+        /* 新增样式 */
+        .knowledge-detail {
+            margin-bottom: 2rem;
+        }
+
+        .knowledge-detail h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .knowledge-detail p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .knowledge-detail code {
+            background: #f8f9fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: var(--accent-color);
+        }
+
+        .knowledge-detail pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .knowledge-detail pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .exercise-container {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .exercise-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .exercise-description {
+            margin-bottom: 1rem;
+        }
+
+        .exercise-link {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .exercise-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .project-exercise {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .project-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .code-fill-blanks {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        .blank {
+            display: inline-block;
+            width: 100px;
+            border-bottom: 2px dashed #e2e8f0;
+            margin: 0 5px;
+        }
+
+        .blank-input {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #e2e8f0;
+            color: #e2e8f0;
+            width: 100px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+
+        .check-answer-btn {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .check-answer-btn:hover {
+            background: #27ae60;
+        }
+
+        .result-message {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .result-correct {
+            background: rgba(46, 204, 113, 0.2);
+            color: var(--success-color);
+        }
+
+        .result-incorrect {
+            background: rgba(231, 76, 60, 0.2);
+            color: var(--accent-color);
+        }
+
+        .university-courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .course-card:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .course-university {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .course-link {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .course-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -1142,7 +1347,7 @@
     
     <header>
         <div class="container">
-            <h1>Phoenix's Computer Science Learning Journey</h1>
+            <h1>Phoenix's Computer Science Learning Journey - Enhanced</h1>
             <p>Guoqing Xia | International College, Jinan University | Computer Science & Technology 2025 | Programming Languages: Python, Java, C++</p>
         </div>
     </header>
@@ -1611,6 +1816,298 @@
     </footer>
 
     <script>
+        // 模块内容定义
+        const moduleContents = {
+            'python-basics': {
+                title: 'Python Basics',
+                knowledge: `
+                    <div class="knowledge-detail">
+                        <h4>Python Programming Fundamentals</h4>
+                        <p>Python is a high-level, interpreted programming language known for its simplicity and readability. It supports multiple programming paradigms including procedural, object-oriented, and functional programming.</p>
+                        
+                        <h4>Key Concepts:</h4>
+                        <ul>
+                            <li><strong>Variables and Data Types:</strong> Python has dynamic typing. Common data types include integers, floats, strings, lists, tuples, dictionaries, and sets.</li>
+                            <li><strong>Control Structures:</strong> if-else statements, for and while loops, and exception handling with try-except blocks.</li>
+                            <li><strong>Functions:</strong> Defined using the <code>def</code> keyword. Python functions can return multiple values and support default and variable-length arguments.</li>
+                            <li><strong>Object-Oriented Programming:</strong> Classes and objects, inheritance, polymorphism, and encapsulation.</li>
+                            <li><strong>Modules and Packages:</strong> Organizing code into reusable modules and packages.</li>
+                        </ul>
+                        
+                        <h4>Example Code:</h4>
+                        <pre><code># Simple Python function to calculate factorial
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+# List comprehension example
+squares = [x**2 for x in range(10)]
+
+# Class example
+class Dog:
+    def __init__(self, name):
+        self.name = name
+    
+    def bark(self):
+        return f"{self.name} says woof!"</code></pre>
+                    </div>
+                `,
+                resources: [
+                    { name: 'Python Official Documentation', url: 'https://docs.python.org/3/', type: 'Documentation' },
+                    { name: 'Real Python Tutorials', url: 'https://realpython.com/', type: 'Tutorials' },
+                    { name: 'MIT 6.0001 - Introduction to Computer Science and Programming in Python', url: 'https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/', type: 'University Course' },
+                    { name: 'University of Michigan - Python for Everybody', url: 'https://www.coursera.org/specializations/python', type: 'Online Course' }
+                ],
+                exercises: [
+                    { name: 'Basic Syntax Exercises', url: 'https://www.hackerrank.com/domains/python', platform: 'HackerRank' },
+                    { name: 'Python Practice on LeetCode', url: 'https://leetcode.com/problemset/all/', platform: 'LeetCode' },
+                    { name: 'Python Exercises on Practice Python', url: 'https://www.practicepython.org/', platform: 'Practice Python' }
+                ],
+                project: {
+                    title: 'Python Number Guessing Game',
+                    description: 'Complete the following Python program that implements a number guessing game.',
+                    code: `import random
+
+def number_guessing_game():
+    # Generate a random number between 1 and 100
+    secret_number = <input type="text" class="blank-input" id="blank1" placeholder="Fill in">
+    attempts = 0
+    
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100.")
+    
+    while True:
+        try:
+            guess = int(input("Enter your guess: "))
+            <input type="text" class="blank-input" id="blank2" placeholder="Fill in"> += 1
+            
+            if guess < secret_number:
+                print("Too low! Try again.")
+            elif guess > secret_number:
+                print("Too high! Try again.")
+            else:
+                print(f"Congratulations! You guessed the number in {attempts} attempts.")
+                <input type="text" class="blank-input" id="blank3" placeholder="Fill in">
+        except ValueError:
+            print("Please enter a valid number.")
+
+if __name__ == "__main__":
+    number_guessing_game()`,
+                    answers: {
+                        blank1: 'random.randint(1, 100)',
+                        blank2: 'attempts',
+                        blank3: 'break'
+                    }
+                }
+            },
+            'java-fundamentals': {
+                title: 'Java Fundamentals',
+                knowledge: `
+                    <div class="knowledge-detail">
+                        <h4>Java Programming Fundamentals</h4>
+                        <p>Java is a class-based, object-oriented programming language designed to have as few implementation dependencies as possible. It is intended to let application developers "write once, run anywhere" (WORA).</p>
+                        
+                        <h4>Key Concepts:</h4>
+                        <ul>
+                            <li><strong>Java Virtual Machine (JVM):</strong> Java code compiles to bytecode that runs on the JVM, providing platform independence.</li>
+                            <li><strong>Object-Oriented Principles:</strong> Encapsulation, inheritance, polymorphism, and abstraction.</li>
+                            <li><strong>Data Types:</strong> Primitive types (int, double, boolean, etc.) and reference types (objects).</li>
+                            <li><strong>Control Structures:</strong> if-else, switch, for, while, and do-while loops.</li>
+                            <li><strong>Exception Handling:</strong> try-catch blocks, throw and throws keywords.</li>
+                            <li><strong>Collections Framework:</strong> Lists, Sets, Maps, and their implementations.</li>
+                        </ul>
+                        
+                        <h4>Example Code:</h4>
+                        <pre><code>// Simple Java class example
+public class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+    
+    public double multiply(double a, double b) {
+        return a * b;
+    }
+}
+
+// Main class with exception handling
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        try {
+            int result = calc.add(5, 10);
+            System.out.println("Result: " + result);
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+    }
+}</code></pre>
+                    </div>
+                `,
+                resources: [
+                    { name: 'Java Official Documentation', url: 'https://docs.oracle.com/javase/tutorial/', type: 'Documentation' },
+                    { name: 'University of Helsinki - Java Programming', url: 'https://java-programming.mooc.fi/', type: 'Online Course' },
+                    { name: 'Princeton University - Computer Science: Programming with a Purpose', url: 'https://www.coursera.org/learn/cs-programming-java', type: 'University Course' },
+                    { name: 'Java Tutorials by Oracle', url: 'https://docs.oracle.com/javase/tutorial/java/index.html', type: 'Tutorials' }
+                ],
+                exercises: [
+                    { name: 'Java Exercises on CodingBat', url: 'https://codingbat.com/java', platform: 'CodingBat' },
+                    { name: 'Java Practice on HackerRank', url: 'https://www.hackerrank.com/domains/java', platform: 'HackerRank' },
+                    { name: 'Java Problems on LeetCode', url: 'https://leetcode.com/problemset/all/', platform: 'LeetCode' }
+                ],
+                project: {
+                    title: 'Java Bank Account Management',
+                    description: 'Complete the following Java program that implements a simple bank account system.',
+                    code: `public class BankAccount {
+    private String accountNumber;
+    private double balance;
+    
+    public BankAccount(String accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
+    }
+    
+    public void deposit(double amount) {
+        if (amount > 0) {
+            <input type="text" class="blank-input" id="blank4" placeholder="Fill in"> += amount;
+            System.out.println("Deposited: $" + amount);
+        }
+    }
+    
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: $" + amount);
+        } else {
+            System.out.println("Insufficient funds or invalid amount");
+        }
+    }
+    
+    public double getBalance() {
+        <input type="text" class="blank-input" id="blank5" placeholder="Fill in"> balance;
+    }
+    
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount("123456", 1000.0);
+        account.deposit(500.0);
+        account.withdraw(200.0);
+        System.out.println("Current balance: $" + <input type="text" class="blank-input" id="blank6" placeholder="Fill in">.getBalance());
+    }
+}`,
+                    answers: {
+                        blank4: 'this.balance',
+                        blank5: 'return',
+                        blank6: 'account'
+                    }
+                }
+            },
+            'linear-structures': {
+                title: 'Linear Data Structures',
+                knowledge: `
+                    <div class="knowledge-detail">
+                        <h4>Linear Data Structures</h4>
+                        <p>Linear data structures organize data in a linear sequence where each element is attached to its previous and next adjacent elements. The main linear data structures are arrays, linked lists, stacks, and queues.</p>
+                        
+                        <h4>Key Concepts:</h4>
+                        <ul>
+                            <li><strong>Arrays:</strong> Contiguous memory locations storing elements of the same type. Access time: O(1), Insertion/Deletion: O(n).</li>
+                            <li><strong>Linked Lists:</strong> Nodes containing data and reference to the next node. Types: Singly, Doubly, and Circular linked lists.</li>
+                            <li><strong>Stacks:</strong> LIFO (Last-In-First-Out) structure. Operations: push, pop, peek.</li>
+                            <li><strong>Queues:</strong> FIFO (First-In-First-Out) structure. Operations: enqueue, dequeue. Variations: Circular queues, Priority queues.</li>
+                            <li><strong>Time Complexities:</strong> Understanding the time complexity of operations for each data structure is crucial for selecting the right one for a given problem.</li>
+                        </ul>
+                        
+                        <h4>Example Code (Linked List in Python):</h4>
+                        <pre><code>class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def append(self, data):
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
+    
+    def display(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
+
+# Usage
+ll = LinkedList()
+ll.append(1)
+ll.append(2)
+ll.append(3)
+ll.display()  # Output: 1 -> 2 -> 3 -> None</code></pre>
+                    </div>
+                `,
+                resources: [
+                    { name: 'GeeksforGeeks - Data Structures', url: 'https://www.geeksforgeeks.org/data-structures/', type: 'Tutorials' },
+                    { name: 'University of California San Diego - Data Structures and Algorithms', url: 'https://www.coursera.org/specializations/data-structures-algorithms', type: 'University Course' },
+                    { name: 'Princeton University - Algorithms, Part I', url: 'https://www.coursera.org/learn/algorithms-part1', type: 'University Course' },
+                    { name: 'Visualgo - Data Structure Visualizations', url: 'https://visualgo.net/en', type: 'Visual Learning' }
+                ],
+                exercises: [
+                    { name: 'Data Structures Practice on LeetCode', url: 'https://leetcode.com/tag/array/', platform: 'LeetCode' },
+                    { name: 'HackerRank Data Structures Challenges', url: 'https://www.hackerrank.com/domains/data-structures', platform: 'HackerRank' },
+                    { name: 'CodeSignal Data Structures Exercises', url: 'https://codesignal.com/', platform: 'CodeSignal' }
+                ],
+                project: {
+                    title: 'Stack Implementation',
+                    description: 'Complete the following Python implementation of a stack data structure.',
+                    code: `class Stack:
+    def __init__(self):
+        self.items = []
+    
+    def is_empty(self):
+        return <input type="text" class="blank-input" id="blank7" placeholder="Fill in"> == []
+    
+    def push(self, item):
+        self.items.<input type="text" class="blank-input" id="blank8" placeholder="Fill in">(item)
+    
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        else:
+            raise IndexError("Pop from empty stack")
+    
+    def peek(self):
+        if not self.is_empty():
+            return self.items[<input type="text" class="blank-input" id="blank9" placeholder="Fill in">]
+        else:
+            raise IndexError("Peek from empty stack")
+    
+    def size(self):
+        return len(self.items)
+
+# Test the stack
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+print(stack.pop())  # Should output 3
+print(stack.peek()) # Should output 2`,
+                    answers: {
+                        blank7: 'self.items',
+                        blank8: 'append',
+                        blank9: '-1'
+                    }
+                }
+            }
+        };
+
         // Learning progress management
         let learningData = {
             modules: {
@@ -1883,12 +2380,346 @@
             updateTaskHistory();
         });
 
+        // Show module content
+        function showModule(moduleId) {
+            document.getElementById('main-dashboard').style.display = 'none';
+            document.getElementById('detail-content').style.display = 'block';
+            
+            // Set up module-specific content
+            setupModuleContent(moduleId);
+        }
+
+        function showSubModule(subModuleId) {
+            document.getElementById('main-dashboard').style.display = 'none';
+            document.getElementById('detail-content').style.display = 'block';
+            
+            // Set up sub-module content
+            setupSubModuleContent(subModuleId);
+        }
+
+        function hideDetail() {
+            document.getElementById('detail-content').style.display = 'none';
+            document.getElementById('main-dashboard').style.display = 'block';
+        }
+
+        // Set up module content
+        function setupModuleContent(moduleId) {
+            const contentTitle = document.getElementById('content-title');
+            const knowledgeContent = document.getElementById('knowledge-content');
+            const practiceQuestions = document.getElementById('practice-questions');
+            const learningResources = document.getElementById('learning-resources');
+            
+            // Reset content
+            knowledgeContent.innerHTML = '';
+            practiceQuestions.innerHTML = '';
+            learningResources.innerHTML = '';
+            
+            // Set title
+            contentTitle.textContent = getModuleTitle(moduleId);
+            
+            // Add knowledge content
+            const knowledgeHTML = getModuleKnowledge(moduleId);
+            knowledgeContent.innerHTML = knowledgeHTML;
+            
+            // Add practice questions
+            const practiceHTML = getModulePractice(moduleId);
+            practiceQuestions.innerHTML = practiceHTML;
+            
+            // Add learning resources
+            const resources = getModuleResources(moduleId);
+            resources.forEach(resource => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${resource.url}" target="_blank">${resource.name}</a> - ${resource.type}`;
+                learningResources.appendChild(li);
+            });
+            
+            // Update progress checklist
+            updateProgressChecklist(moduleId);
+        }
+
+        // Set up sub-module content
+        function setupSubModuleContent(subModuleId) {
+            if (!moduleContents[subModuleId]) {
+                console.error(`No content found for sub-module: ${subModuleId}`);
+                return;
+            }
+            
+            const content = moduleContents[subModuleId];
+            const contentTitle = document.getElementById('content-title');
+            const knowledgeContent = document.getElementById('knowledge-content');
+            const practiceQuestions = document.getElementById('practice-questions');
+            const learningResources = document.getElementById('learning-resources');
+            
+            // Reset content
+            knowledgeContent.innerHTML = '';
+            practiceQuestions.innerHTML = '';
+            learningResources.innerHTML = '';
+            
+            // Set title
+            contentTitle.textContent = content.title;
+            
+            // Add knowledge content
+            knowledgeContent.innerHTML = content.knowledge;
+            
+            // Add practice questions
+            practiceQuestions.innerHTML = `
+                <div class="exercise-container">
+                    <h4 class="exercise-title">Practice Exercises</h4>
+                    <p class="exercise-description">Try these exercises to test your understanding:</p>
+                    ${content.exercises.map(ex => 
+                        `<a href="${ex.url}" target="_blank" class="exercise-link">${ex.name} (${ex.platform})</a>`
+                    ).join('')}
+                </div>
+                
+                <div class="project-exercise">
+                    <h4 class="project-title">${content.project.title}</h4>
+                    <p class="exercise-description">${content.project.description}</p>
+                    <div class="code-fill-blanks">
+                        <pre>${content.project.code}</pre>
+                    </div>
+                    <button class="check-answer-btn" onclick="checkProjectAnswers('${subModuleId}')">Check Answers</button>
+                    <div id="result-message-${subModuleId}" class="result-message"></div>
+                </div>
+            `;
+            
+            // Add learning resources
+            content.resources.forEach(resource => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${resource.url}" target="_blank">${resource.name}</a> - ${resource.type}`;
+                learningResources.appendChild(li);
+            });
+            
+            // Update progress checklist
+            updateProgressChecklist(subModuleId);
+        }
+
+        // Check project answers
+        function checkProjectAnswers(subModuleId) {
+            const content = moduleContents[subModuleId];
+            const answers = content.project.answers;
+            const resultDiv = document.getElementById(`result-message-${subModuleId}`);
+            
+            let allCorrect = true;
+            let feedback = '';
+            
+            for (const blankId in answers) {
+                const userAnswer = document.getElementById(blankId).value.trim();
+                const correctAnswer = answers[blankId];
+                
+                if (userAnswer === correctAnswer) {
+                    feedback += `<p>✓ Blank ${blankId.replace('blank', '')}: Correct!</p>`;
+                } else {
+                    feedback += `<p>✗ Blank ${blankId.replace('blank', '')}: Incorrect. Expected: ${correctAnswer}</p>`;
+                    allCorrect = false;
+                }
+            }
+            
+            if (allCorrect) {
+                resultDiv.className = 'result-message result-correct';
+                resultDiv.innerHTML = '<p>🎉 All answers are correct! Well done!</p>' + feedback;
+                learningData.problemsSolved += 3; // Bonus for project completion
+                showNotification('Project completed successfully!', 'success');
+            } else {
+                resultDiv.className = 'result-message result-incorrect';
+                resultDiv.innerHTML = '<p>Some answers are incorrect. Please review and try again.</p>' + feedback;
+            }
+            
+            resultDiv.style.display = 'block';
+            updateDisplay();
+        }
+
+        // Helper functions for module content
+        function getModuleTitle(moduleId) {
+            const titles = {
+                'foundation': 'Programming Fundamentals',
+                'data-structures': 'Data Structures',
+                'algorithms': 'Algorithm Design',
+                'system-design': 'System Design',
+                'web-dev': 'Web Development'
+            };
+            return titles[moduleId] || 'Module Details';
+        }
+
+        function getModuleKnowledge(moduleId) {
+            // This would be expanded with actual content for each module
+            const knowledge = {
+                'foundation': `
+                    <div class="knowledge-detail">
+                        <h4>Programming Fundamentals Overview</h4>
+                        <p>Programming fundamentals form the basis of all software development. This module covers essential concepts that are common across most programming languages.</p>
+                        
+                        <h4>Key Topics:</h4>
+                        <ul>
+                            <li><strong>Variables and Data Types:</strong> Understanding how to store and manipulate data.</li>
+                            <li><strong>Control Structures:</strong> Making decisions and repeating actions in code.</li>
+                            <li><strong>Functions/Methods:</strong> Organizing code into reusable blocks.</li>
+                            <li><strong>Basic Algorithms:</strong> Simple problem-solving techniques.</li>
+                            <li><strong>Debugging:</strong> Finding and fixing errors in code.</li>
+                        </ul>
+                        
+                        <p>Mastering these fundamentals is crucial before moving on to more advanced topics like data structures and algorithms.</p>
+                    </div>
+                `,
+                'data-structures': `
+                    <div class="knowledge-detail">
+                        <h4>Data Structures Overview</h4>
+                        <p>Data structures are specialized formats for organizing, processing, retrieving and storing data. They provide a means to manage large amounts of data efficiently.</p>
+                        
+                        <h4>Key Topics:</h4>
+                        <ul>
+                            <li><strong>Linear Structures:</strong> Arrays, Linked Lists, Stacks, Queues</li>
+                            <li><strong>Tree Structures:</strong> Binary Trees, BST, AVL Trees, Heaps</li>
+                            <li><strong>Hash Tables:</strong> Implementation and collision resolution</li>
+                            <li><strong>Graphs:</strong> Representation and traversal algorithms</li>
+                            <li><strong>Time and Space Complexity:</strong> Analyzing efficiency of data structures</li>
+                        </ul>
+                        
+                        <p>Understanding data structures is essential for writing efficient programs and is a key topic in technical interviews.</p>
+                    </div>
+                `,
+                'algorithms': `
+                    <div class="knowledge-detail">
+                        <h4>Algorithm Design Overview</h4>
+                        <p>Algorithms are step-by-step procedures for solving problems. This module covers common algorithm design techniques and their applications.</p>
+                        
+                        <h4>Key Topics:</h4>
+                        <ul>
+                            <li><strong>Sorting Algorithms:</strong> Bubble sort, quicksort, mergesort, heapsort</li>
+                            <li><strong>Searching Algorithms:</strong> Linear search, binary search, hash-based search</li>
+                            <li><strong>Dynamic Programming:</strong> Breaking problems into overlapping subproblems</li>
+                            <li><strong>Greedy Algorithms:</strong> Making locally optimal choices</li>
+                            <li><strong>Graph Algorithms:</strong> BFS, DFS, shortest path, minimum spanning tree</li>
+                            <li><strong>Algorithm Analysis:</strong> Big O notation, time and space complexity</li>
+                        </ul>
+                        
+                        <p>Mastering algorithm design is crucial for solving complex computational problems efficiently.</p>
+                    </div>
+                `
+            };
+            
+            return knowledge[moduleId] || '<p>Content for this module is coming soon.</p>';
+        }
+
+        function getModulePractice(moduleId) {
+            // This would be expanded with actual practice problems for each module
+            const practice = {
+                'foundation': `
+                    <div class="exercise-container">
+                        <h4 class="exercise-title">Programming Fundamentals Practice</h4>
+                        <p class="exercise-description">Practice these fundamental programming concepts:</p>
+                        <a href="https://www.hackerrank.com/domains/tutorials/10-days-of-javascript" target="_blank" class="exercise-link">HackerRank - 10 Days of JavaScript</a>
+                        <a href="https://www.codecademy.com/learn/learn-python" target="_blank" class="exercise-link">Codecademy - Learn Python</a>
+                        <a href="https://codingbat.com/java" target="_blank" class="exercise-link">CodingBat - Java Problems</a>
+                    </div>
+                    
+                    <div class="practice-question">
+                        <div class="question-text">What is the time complexity of accessing an element in an array by index?</div>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q1" value="a"> O(1)
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="b"> O(n)
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="c"> O(log n)
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="d"> O(n²)
+                            </div>
+                        </div>
+                        <button class="show-solution" onclick="showSolution('sol1')">Show Solution</button>
+                        <div id="sol1" class="solution">
+                            The correct answer is O(1). Arrays provide constant-time access to elements by index because the memory address of any element can be calculated directly using the base address and the index.
+                        </div>
+                    </div>
+                `,
+                'data-structures': `
+                    <div class="exercise-container">
+                        <h4 class="exercise-title">Data Structures Practice</h4>
+                        <p class="exercise-description">Practice implementing and using various data structures:</p>
+                        <a href="https://leetcode.com/tag/array/" target="_blank" class="exercise-link">LeetCode - Array Problems</a>
+                        <a href="https://leetcode.com/tag/linked-list/" target="_blank" class="exercise-link">LeetCode - Linked List Problems</a>
+                        <a href="https://leetcode.com/tag/tree/" target="_blank" class="exercise-link">LeetCode - Tree Problems</a>
+                        <a href="https://www.hackerrank.com/domains/data-structures" target="_blank" class="exercise-link">HackerRank - Data Structures</a>
+                    </div>
+                `,
+                'algorithms': `
+                    <div class="exercise-container">
+                        <h4 class="exercise-title">Algorithm Practice</h4>
+                        <p class="exercise-description">Practice implementing various algorithms:</p>
+                        <a href="https://leetcode.com/problemset/algorithms/" target="_blank" class="exercise-link">LeetCode - Algorithm Problems</a>
+                        <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" class="exercise-link">HackerRank - Algorithms</a>
+                        <a href="https://www.topcoder.com/community/competitive-programming/tutorials/" target="_blank" class="exercise-link">TopCoder - Algorithm Tutorials</a>
+                    </div>
+                `
+            };
+            
+            return practice[moduleId] || '<p>Practice problems for this module are coming soon.</p>';
+        }
+
+        function getModuleResources(moduleId) {
+            // This would be expanded with actual resources for each module
+            const resources = {
+                'foundation': [
+                    { name: 'freeCodeCamp - Responsive Web Design', url: 'https://www.freecodecamp.org/learn/responsive-web-design/', type: 'Interactive Tutorial' },
+                    { name: 'MDN Web Docs - JavaScript', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', type: 'Documentation' },
+                    { name: 'Harvard CS50 - Introduction to Computer Science', url: 'https://cs50.harvard.edu/x/2023/', type: 'University Course' }
+                ],
+                'data-structures': [
+                    { name: 'GeeksforGeeks - Data Structures', url: 'https://www.geeksforgeeks.org/data-structures/', type: 'Tutorials' },
+                    { name: 'University of California San Diego - Data Structures and Algorithms', url: 'https://www.coursera.org/specializations/data-structures-algorithms', type: 'University Course' },
+                    { name: 'Visualgo - Data Structure Visualizations', url: 'https://visualgo.net/en', type: 'Visual Learning' }
+                ],
+                'algorithms': [
+                    { name: 'Khan Academy - Algorithms', url: 'https://www.khanacademy.org/computing/computer-science/algorithms', type: 'Interactive Tutorial' },
+                    { name: 'Princeton University - Algorithms, Part I', url: 'https://www.coursera.org/learn/algorithms-part1', type: 'University Course' },
+                    { name: 'CLRS - Introduction to Algorithms', url: 'https://mitpress.mit.edu/books/introduction-algorithms-third-edition', type: 'Textbook' }
+                ]
+            };
+            
+            return resources[moduleId] || [];
+        }
+
+        function updateProgressChecklist(moduleId) {
+            const checklist = document.getElementById('progress-checklist');
+            checklist.innerHTML = '';
+            
+            // This would be customized for each module
+            const items = [
+                'Read the theory materials',
+                'Complete practice exercises',
+                'Work on the project',
+                'Take the module quiz'
+            ];
+            
+            items.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <input type="checkbox" id="check-${moduleId}-${index}">
+                    <label for="check-${moduleId}-${index}">${item}</label>
+                `;
+                checklist.appendChild(li);
+            });
+        }
+
         // The rest of the functions remain the same as in the previous version
-        // (showTopicDetail, showModule, showSubModule, hideDetail, setupFoundationContent, etc.)
-        // These would be implemented similarly to the previous version but integrated with the new progress tracking system
-        
-        // For brevity, I'm including just the essential additional functions
-        
+        // (showTopicDetail, addToHistory, initCalendar, etc.)
+
+        function showTopicDetail(topic) {
+            // Hide all topic details first
+            const allDetails = document.querySelectorAll('.topic-detail');
+            allDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+            
+            // Show the selected topic detail
+            const selectedDetail = document.getElementById(`${topic}-detail`);
+            if (selectedDetail) {
+                selectedDetail.style.display = 'block';
+            }
+        }
+
         function addToHistory(action) {
             const historyContainer = document.getElementById('task-history-container');
             const historyItem = document.createElement('div');
