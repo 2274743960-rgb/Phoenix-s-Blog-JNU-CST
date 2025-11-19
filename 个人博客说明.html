@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix's CS Learning Journey - 项目文档</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --light-bg: #ecf0f1;
+            --dark-bg: #34495e;
+            --text-light: #ffffff;
+            --text-dark: #2c3e50;
+            --border-radius: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding-bottom: 2rem;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list i {
+            color: var(--secondary-color);
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        .code-block {
+            background: var(--dark-bg);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .screenshot {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin: 1.5rem 0;
+        }
+
+        .note {
+            background: #fff8e1;
+            border-left: 4px solid var(--warning-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid var(--success-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .language-tabs {
+            display: flex;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .language-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+
+        .language-tab.active {
+            border-bottom: 3px solid var(--secondary-color);
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .language-content {
+            display: none;
+        }
+
+        .language-content.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .toc {
+            position: sticky;
+            top: 2rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .toc a:hover {
+            color: var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-top: 3rem;
+            border-radius: var(--border-radius);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Phoenix's CS Learning Journey - 项目文档</h1>
+            <p>Computer Science Learning Journey - Project Documentation</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="toc">
+            <h3>目录 / Table of Contents</h3>
+            <ul>
+                <li><a href="#overview">项目概述 / Project Overview</a></li>
+                <li><a href="#design">设计初衷 / Design Philosophy</a></li>
+                <li><a href="#features">功能特点 / Features</a></li>
+                <li><a href="#usage">使用说明 / User Guide</a></li>
+                <li><a href="#structure">项目结构 / Project Structure</a></li>
+                <li><a href="#tech">技术实现 / Technical Implementation</a></li>
+                <li><a href="#customization">自定义指南 / Customization Guide</a></li>
+                <li><a href="#future">未来发展 / Future Development</a></li>
+            </ul>
+        </div>
+
+        <div class="section" id="overview">
+            <div class="card">
+                <h2>项目概述 / Project Overview</h2>
+                
+                <div class="language-tabs">
+                    <div class="language-tab active" onclick="switchLanguage('overview', 'cn')">中文</div>
+                    <div class="language-tab" onclick="switchLanguage('overview', 'en')">English</div>
+                </div>
+                
+                <div class="language-content active" id="overview-cn">
+                    <p>Phoenix的计算机科学学习旅程是一个交互式学习管理平台，专为计算机科学专业学生设计，帮助他们系统化地规划、跟踪和管理学习进度。</p>
+                    <p>该项目由夏国庆（Phoenix）开发，他是暨南大学国际学院计算机科学与技术专业2025届的学生。平台整合了学习模块、进度跟踪、任务管理、成就系统等功能，为学生提供了一个全面的学习辅助工具。</p>
+                    <p>项目完全使用HTML、CSS和JavaScript实现，无需后端支持，数据通过浏览器本地存储保存。</p>
+                </div>
+                
+                <div class="language-content" id="overview-en">
+                    <p>Phoenix's Computer Science Learning Journey is an interactive learning management platform designed specifically for computer science students to systematically plan, track, and manage their learning progress.</p>
+                    <p>This project was developed by Guoqing Xia (Phoenix), a 2025 Computer Science and Technology student at Jinan University International College. The platform integrates learning modules, progress tracking, task management, achievement systems, and more, providing students with a comprehensive learning assistance tool.</p>
+                    <p>The project is entirely implemented using HTML, CSS, and JavaScript, requiring no backend support, with data saved through browser local storage.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="design">
+            <div class="card">
+                <h2>设计初衷 / Design Philosophy</h2>
+                
+                <div class="language-tabs">
+                    <div class="language-tab active" onclick="switchLanguage('design', 'cn')">中文</div>
+                    <div class="language-tab" onclick="switchLanguage('design', 'en')">English</div>
+                </div>
+                
+                <div class="language-content active" id="design-cn">
+                    <p>作为一名计算机科学专业的学生，我深刻理解学习过程中面临的挑战：</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-book"></i> 知识体系庞大，难以系统化学习</li>
+                        <li><i class="fas fa-tasks"></i> 学习任务繁多，缺乏有效跟踪</li>
+                        <li><i class="fas fa-chart-line"></i> 进度难以可视化，缺乏成就感</li>
+                        <li><i class="fas fa-graduation-cap"></i> 理论与实践结合不够紧密</li>
+                    </ul>
+                    <p>基于这些痛点，我设计了这款学习旅程平台，旨在：</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-road"></i> 提供结构化的学习路径导航</li>
+                        <li><i class="fas fa-check-circle"></i> 实现学习进度的可视化跟踪</li>
+                        <li><i class="fas fa-trophy"></i> 通过成就系统增强学习动力</li>
+                        <li><i class="fas fa-brain"></i> 建立知识体系间的联系</li>
+                    </ul>
+                    <div class="note">
+                        <p><strong>设计理念：</strong> 将学习过程游戏化，通过即时反馈和奖励机制激发学习兴趣，帮助学生建立持续学习的习惯。</p>
+                    </div>
+                </div>
+                
+                <div class="language-content" id="design-en">
+                    <p>As a computer science student, I deeply understand the challenges faced during the learning process:</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-book"></i> Vast knowledge system makes systematic learning difficult</li>
+                        <li><i class="fas fa-tasks"></i> Numerous learning tasks lack effective tracking</li>
+                        <li><i class="fas fa-chart-line"></i> Progress is hard to visualize, lacking a sense of achievement</li>
+                        <li><i class="fas fa-graduation-cap"></i> Insufficient integration of theory and practice</li>
+                    </ul>
+                    <p>Based on these pain points, I designed this learning journey platform aiming to:</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-road"></i> Provide structured learning path navigation</li>
+                        <li><i class="fas fa-check-circle"></i> Achieve visual tracking of learning progress</li>
+                        <li><i class="fas fa-trophy"></i> Enhance learning motivation through achievement systems</li>
+                        <li><i class="fas fa-brain"></i> Establish connections between knowledge systems</li>
+                    </ul>
+                    <div class="note">
+                        <p><strong>Design Philosophy:</strong> Gamify the learning process, stimulate learning interest through instant feedback and reward mechanisms, and help students develop consistent learning habits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="features">
+            <div class="card">
+                <h2>功能特点 / Features</h2>
+                
+                <div class="language-tabs">
+                    <div class="language-tab active" onclick="switchLanguage('features', 'cn')">中文</div>
+                    <div class="language-tab" onclick="switchLanguage('features', 'en')">English</div>
+                </div>
+                
+                <div class="language-content active" id="features-cn">
+                    <h3>核心功能模块</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-road"></i> <strong>学习路径导航</strong> - 结构化的学习模块，涵盖编程基础、数据结构、算法设计等核心领域</li>
+                        <li><i class="fas fa-chart-bar"></i> <strong>进度可视化</strong> - 实时显示学习进度和统计数据</li>
+                        <li><i class="fas fa-calendar-week"></i> <strong>学习计划管理</strong> - 周计划制定与任务跟踪</li>
+                        <li><i class="fas fa-brain"></i> <strong>知识体系图</strong> - 思维导图展示知识点间的关联</li>
+                        <li><i class="fas fa-book-open"></i> <strong>学习资源库</strong> - 整合优质学习资源，方便查阅</li>
+                        <li><i class="fas fa-trophy"></i> <strong>成就系统</strong> - 通过徽章和奖励激励学习</li>
+                        <li><i class="fas fa-fire"></i> <strong>连续学习打卡</strong> - 培养持续学习习惯</li>
+                        <li><i class="fas fa-user-circle"></i> <strong>个性化设置</strong> - 支持头像上传和个人信息编辑</li>
+                    </ul>
+                    
+                    <h3>技术亮点</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-paint-brush"></i> 响应式设计，适配各种设备</li>
+                        <li><i class="fas fa-database"></i> 本地数据存储，无需后端支持</li>
+                        <li><i class="fas fa-code"></i> 纯前端实现，易于部署</li>
+                        <li><i class="fas fa-palette"></i> 现代化UI设计，流畅的交互动效</li>
+                    </ul>
+                </div>
+                
+                <div class="language-content" id="features-en">
+                    <h3>Core Function Modules</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-road"></i> <strong>Learning Path Navigation</strong> - Structured learning modules covering core areas like programming fundamentals, data structures, algorithm design</li>
+                        <li><i class="fas fa-chart-bar"></i> <strong>Progress Visualization</strong> - Real-time display of learning progress and statistics</li>
+                        <li><i class="fas fa-calendar-week"></i> <strong>Study Plan Management</strong> - Weekly planning and task tracking</li>
+                        <li><i class="fas fa-brain"></i> <strong>Knowledge System Map</strong> - Mind map showing connections between knowledge points</li>
+                        <li><i class="fas fa-book-open"></i> <strong>Learning Resource Library</strong> - Integrated high-quality learning resources for easy reference</li>
+                        <li><i class="fas fa-trophy"></i> <strong>Achievement System</strong> - Motivate learning through badges and rewards</li>
+                        <li><i class="fas fa-fire"></i> <strong>Continuous Learning Check-in</strong> - Develop consistent learning habits</li>
+                        <li><i class="fas fa-user-circle"></i> <strong>Personalized Settings</strong> - Support for avatar upload and personal information editing</li>
+                    </ul>
+                    
+                    <h3>Technical Highlights</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-paint-brush"></i> Responsive design, adaptable to various devices</li>
+                        <li><i class="fas fa-database"></i> Local data storage, no backend required</li>
+                        <li><i class="fas fa-code"></i> Pure frontend implementation, easy to deploy</li>
+                        <li><i class="fas fa-palette"></i> Modern UI design with smooth interactive animations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="usage">
+            <div class="card">
+                <h2>使用说明 / User Guide</h2>
+                
+                <div class="language-tabs">
+                    <div class="language-tab active" onclick="switchLanguage('usage', 'cn')">中文</div>
+                    <div class="language-tab" onclick="switchLanguage('usage', 'en')">English</div>
+                </div>
+                
+                <div class="language-content active" id="usage-cn">
+                    <h3>快速开始</h3>
+                    <ol>
+                        <li>下载项目文件或克隆代码库</li>
+                        <li>在浏览器中打开 <code>index.html</code> 文件</li>
+                        <li>开始探索和使用各项功能</li>
+                    </ol>
+                    
+                    <h3>功能使用指南</h3>
+                    
+                    <h4>1. 学习模块导航</h4>
+                    <p>使用左侧导航栏浏览不同的学习模块，点击模块名称查看详细内容。</p>
+                    
+                    <h4>2. 进度跟踪</h4>
+                    <p>完成学习任务后，勾选对应的复选框或点击"完成"按钮更新进度。</p>
+                    
+                    <h4>3. 每日打卡</h4>
+                    <p>点击"今日打卡"按钮记录每日学习，保持连续学习天数。</p>
+                    
+                    <h4>4. 个人资料设置</h4>
+                    <p>点击"上传照片"按钮更换个人头像。</p>
+                    
+                    <h4>5. 学习资源访问</h4>
+                    <p>点击资源卡片中的链接访问外部学习资源。</p>
+                    
+                    <div class="tip">
+                        <p><strong>提示：</strong> 所有数据都保存在浏览器本地存储中，清除浏览器数据将导致学习记录丢失。</p>
+                    </div>
+                </div>
+                
+                <div class="language-content" id="usage-en">
+                    <h3>Quick Start</h3>
+                    <ol>
+                        <li>Download the project files or clone the code repository</li>
+                        <li>Open the <code>index.html</code> file in a browser</li>
+                        <li>Start exploring and using all features</li>
+                    </ol>
+                    
+                    <h3>Feature Usage Guide</h3>
+                    
+                    <h4>1. Learning Module Navigation</h4>
+                    <p>Use the left navigation bar to browse different learning modules, click on module names to view detailed content.</p>
+                    
+                    <h4>2. Progress Tracking</h4>
+                    <p>After completing learning tasks, check the corresponding checkboxes or click the "Complete" button to update progress.</p>
+                    
+                    <h4>3. Daily Check-in</h4>
+                    <p>Click the "Check-in Today" button to record daily learning and maintain consecutive learning days.</p>
+                    
+                    <h4>4. Profile Settings</h4>
+                    <p>Click the "Upload Photo" button to change your profile picture.</p>
+                    
+                    <h4>5. Learning Resource Access</h4>
+                    <p>Click links in resource cards to access external learning resources.</p>
+                    
+                    <div class="tip">
+                        <p><strong>Tip:</strong> All data is saved in browser local storage, clearing browser data will result in loss of learning records.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="structure">
+            <div class="card">
+                <h2>项目结构 / Project Structure</h2>
+                
+                <div class="language-tabs">
+                    <div class="language-tab active" onclick="switchLanguage('structure', 'cn')">中文</div>
+                    <div class="language-tab" onclick="switchLanguage('structure', 'en')">English</div>
+                </div>
+                
+                <div class="language-content active" id="structure-cn">
+                    <p>项目采用单文件结构，所有代码都包含在一个HTML文件中：</p>
+                    
+                    <div class="code-block">
+                        Phoenix-CS-Learning-Journey/
+                        ├── index.html                 # 主文件，包含所有HTML、CSS和JavaScript代码
+                        └── README.md                 # 项目说明文档
+                    </div>
+                    
+                    <h3>代码结构说明</h3>
+                    
+                    <h4>HTML结构</h4>
+                    <ul>
+                        <li><strong>Header</strong> - 页面标题和个人信息</li>
+                        <li><strong>Sidebar</strong> - 学习路径导航菜单</li>
+                        <li><strong>Main Content</strong> - 主内容区域，包含：
+                            <ul>
+                                <li>个人资料部分</li>
+                                <li>学习统计概览</li>
+                                <li>每日打卡</li>
+                                <li>核心学习模块</li>
+                                <li>知识体系图</li>
+                                <li>学习资源库</li>
+                                <li>联系信息</li>
+                            </ul>
+                        </li>
+                        <li><strong>Widgets Area</strong> - 侧边小部件，包含：
+                            <ul>
+                                <li>本周学习计划</li>
+                                <li>个人成就</li>
+                            </ul>
+                        </li>
+                        <li><strong>Footer</strong> - 页脚信息</li>
+                    </ul>
+                    
+                    <h4>CSS结构</h4>
+                    <ul>
+                        <li><strong>CSS变量</strong> - 定义颜色、阴影、圆角等设计系统</li>
+                        <li><strong>全局样式</strong> - 重置样式和基础样式</li>
+                        <li><strong>组件样式</strong> - 卡片、按钮、进度条等组件样式</li>
+                        <li><strong>响应式设计</strong> - 媒体查询适配不同屏幕尺寸</li>
+                    </ul>
+                    
+                    <h4>JavaScript结构</h4>
+                    <ul>
+                        <li><strong>数据管理</strong> - 学习数据的存储和读取</li>
+                        <li><strong>进度跟踪</strong> - 学习进度更新和计算</li>
+                        <li><strong>任务管理</strong> - 任务状态更新和历史记录</li>
+                        <li><strong>成就系统</strong> - 成就解锁和显示</li>
+                        <li><strong>交互功能</strong> - 打卡、日历、粒子动画等</li>
+                    </ul>
+                </div>
+                
+                <div class="language-content" id="structure-en">
+                    <p>The project uses a single-file structure, with all code contained in one HTML file:</p>
+                    
+                    <div class="code-block">
+                        Phoenix-CS-Learning-Journey/
+                        ├── index.html                 # Main file containing all HTML, CSS and JavaScript code
+                        └── README.md                 # Project documentation
+                    </div>
+                    
+                    <h3>Code Structure Explanation</h3>
+                    
+                    <h4>HTML Structure</h4>
+                    <ul>
+                        <li><strong>Header</strong> - Page title and personal information</li>
+                        <li><strong>Sidebar</strong> - Learning path navigation menu</li>
+                        <li><strong>Main Content</strong> - Main content area, including:
+                            <ul>
+                                <li>Profile section</li>
+                                <li>Learning statistics overview</li>
+                                <li>Daily check-in</li>
+                                <li>Core learning modules</li>
+                                <li>Knowledge system map</li>
+                                <li>Learning resource library</li>
+                                <li>Contact information</li>
+                            </ul>
+                        </li>
+                        <li><strong>Widgets Area</strong> - Side widgets, including:
+                            <ul>
+                                <li>This week's study plan</li>
+                                <li>Personal achievements</li>
+                            </ul>
+                        </li>
+                        <li><strong>Footer</strong> - Footer information</li>
+                    </ul>
+                    
+                    <h4>CSS Structure</h4>
+                    <ul>
+                        <li><strong>CSS Variables</strong> - Define color schemes, shadows, border radius, etc.</li>
+                        <li><strong>Global Styles</strong> - Reset styles and base styles</li>
+                        <li><strong>Component Styles</strong> - Card, button, progress bar, etc.</li>
+                        <li><strong>Responsive Design</strong> - Media queries for different screen sizes</li>
+                    </ul>
+                    
+                    <h4>JavaScript Structure</h4>
+                    <ul>
+                        <li><strong>Data Management</strong> - Storage and retrieval of learning data</li>
+                        <li><strong>Progress Tracking</strong> - Learning progress updates and calculations</li>
+                        <li><strong>Task Management</strong> - Task status updates and history</li>
+                        <li><strong>Achievement System</strong> - Achievement unlocking and display</li>
+                        <li><strong>Interactive Features</strong> - Check-in, calendar, particle animation, etc.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="tech">
+            <div class="card">
+                <h2>技术实现 / Technical Implementation</h2>
+                
+                <div class="language-tabs">
+                    <div class="language-tab active" onclick="switchLanguage('tech', 'cn')">中文</div>
+                    <div class="language-tab" onclick="switchLanguage('tech', 'en')">English</div>
+                </div>
+                
+                <div class="language-content active" id="tech-cn">
+                    <h3>核心技术栈</h3>
+                    <table>
+                        <tr>
+                            <th>技术</th>
+                            <th>用途</th>
+                            <th>特点</th>
+                        </tr>
+                        <tr>
+                            <td>HTML5</td>
+                            <td>页面结构和内容</td>
+                            <td>语义化标签，增强可访问性</td>
+                        </tr>
+                        <tr>
+                            <td>CSS3</td>
+                            <td>样式和布局</td>
+                            <td>CSS变量，Flexbox，Grid，动画</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript ES6+</td>
+                            <td>交互逻辑和数据管理</td>
+                            <td>模块化代码，本地存储API</td>
+                        </tr>
+                        <tr>
+                            <td>Font Awesome</td>
+                            <td>图标库</td>
+                            <td>丰富的图标选择，易于使用</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>关键实现细节</h3>
+                    
+                    <h4>1. 数据持久化</h4>
+                    <p>使用浏览器的localStorage API保存学习数据：</p>
+                    <div class="code-block">
+// 保存数据到本地存储
+function saveData() {
+    localStorage.setItem('learningData', JSON.stringify(learningData));
+}
+
+// 从本地存储加载数据
+function loadData() {
+    const savedData = localStorage.getItem('learningData');
+    if (savedData) {
+        learningData = JSON.parse(savedData);
+    }
+    updateDisplay();
+}
+                    </div>
+                    
+                    <h4>2. 响应式布局</h4>
+                    <p>使用CSS Grid和Flexbox实现响应式布局：</p>
+                    <div class="code-block">
+.dashboard {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 992px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+                    </div>
+                    
+                    <h4>3. 粒子动画效果</h4>
+                    <p>使用HTML5 Canvas实现背景粒子动画：</p>
+                    <div class="code-block">
+function initParticles() {
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // 设置画布尺寸
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // 粒子数组和动画循环
+    // ...
+}
+                    </div>
+                    
+                    <h4>4. 进度计算和更新</h4>
+                    <p>动态计算和更新学习进度：</p>
+                    <div class="code-block">
+function updateDisplay() {
+    // 计算总体进度
+    let totalModules = 0;
+    let completedModules = 0;
+    
+    for (const module in learningData.modules) {
+        totalModules += learningData.modules[module].total;
+        completedModules += learningData.modules[module].completed;
+    }
+    
+    const overallProgress = totalModules > 0 ? 
+        Math.round((completedModules / totalModules) * 100) : 0;
+    
+    // 更新进度条和数字
+    document.getElementById('overall-progress').textContent = `${overallProgress}%`;
+    document.getElementById('progress-fill').style.width = `${overallProgress}%`;
+    // ...
+}
+                    </div>
+                </div>
+                
+                <div class="language-content" id="tech-en">
+                    <h3>Core Technology Stack</h3>
+                    <table>
+                        <tr>
+                            <th>Technology</th>
+                            <th>Purpose</th>
+                            <th>Features</th>
+                        </tr>
+                        <tr>
+                            <td>HTML5</td>
+                            <td>Page structure and content</td>
+                            <td>Semantic tags, enhanced accessibility</td>
+                        </tr>
+                        <tr>
+                            <td>CSS3</td>
+                            <td>Styling and layout</td>
+                            <td>CSS variables, Flexbox, Grid, animations</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript ES6+</td>
+                            <td>Interactive logic and data management</td>
+                            <td>Modular code, local storage API</td>
+                        </tr>
+                        <tr>
+                            <td>Font Awesome</td>
+                            <td>Icon library</td>
+                            <td>Rich icon selection, easy to use</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Key Implementation Details</h3>
+                    
+                    <h4>1. Data Persistence</h4>
+                    <p>Using browser's localStorage API to save learning data:</p>
+                    <div class="code-block">
+// Save data to local storage
+function saveData() {
+    localStorage.setItem('learningData', JSON.stringify(learningData));
+}
+
+// Load data from local storage
+function loadData() {
+    const savedData = localStorage.getItem('learningData');
+    if (savedData) {
+        learningData = JSON.parse(savedData);
+    }
+    updateDisplay();
+}
+                    </div>
+                    
+                    <h4>2. Responsive Layout</h4>
+                    <p>Using CSS Grid and Flexbox for responsive layout:</p>
+                    <div class="code-block">
+.dashboard {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 992px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+                    </div>
+                    
+                    <h4>3. Particle Animation Effect</h4>
+                    <p>Using HTML5 Canvas for background particle animation:</p>
+                    <div class="code-block">
+function initParticles() {
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas dimensions
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Particle array and animation loop
+    // ...
+}
+                    </div>
+                    
+                    <h4>4. Progress Calculation and Updates</h4>
+                    <p>Dynamic calculation and updating of learning progress:</p>
+                    <div class="code-block">
+function updateDisplay() {
+    // Calculate overall progress
+    let totalModules = 0;
+    let completedModules = 0;
+    
+    for (const module in learningData.modules) {
+        totalModules += learningData.modules[module].total;
+        completedModules += learningData.modules[module].completed;
+    }
+    
+    const overallProgress = totalModules > 0 ? 
+        Math.round((completedModules / totalModules) * 100) : 0;
+    
+    // Update progress bars and numbers
+    document.getElementById('overall-progress').textContent = `${overallProgress}%`;
+    document.getElementById('progress-fill').style.width = `${overallProgress}%`;
+    // ...
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="customization">
+            <div class="card">
+                <h2>自定义指南 / Customization Guide</h2>
+                
+                <div class="language-tabs">
+                    <div class="language-tab active" onclick="switchLanguage('customization', 'cn')">中文</div>
+                    <div class="language-tab" onclick="switchLanguage('customization', 'en')">English</div>
+                </div>
+                
+                <div class="language-content active" id="customization-cn">
+                    <h3>个性化学习路径</h3>
+                    <p>您可以轻松修改学习路径以适应自己的学习需求：</p>
+                    
+                    <h4>1. 修改导航菜单</h4>
+                    <p>在HTML中找到导航菜单部分，修改模块名称和结构：</p>
+                    <div class="code-block">
+&lt;ul class="nav-menu"&gt;
+    &lt;li&gt;
+        &lt;a href="#" onclick="showModule('foundation')"&gt;1. 编程基础&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#" onclick="showSubModule('python-basics')"&gt;1.1 Python基础&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#" onclick="showSubModule('java-fundamentals')"&gt;1.2 Java基础&lt;/a&gt;&lt;/li&gt;
+            &lt;!-- 添加更多子模块 --&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;!-- 添加更多主模块 --&gt;
+&lt;/ul&gt;
+                    </div>
+                    
+                    <h4>2. 更新学习模块</h4>
+                    <p>在learningData对象中添加或修改学习模块：</p>
+                    <div class="code-block">
+let learningData = {
+    modules: {
+        foundation: { completed: 0, total: 4, status: 'not-started' },
+        dataStructures: { completed: 0, total: 4, status: 'not-started' },
+        // 添加新模块
+        newModule: { completed: 0, total: 5, status: 'not-started' }
+    },
+    // ...
+};
+                    </div>
+                    
+                    <h4>3. 自定义颜色主题</h4>
+                    <p>修改CSS变量来更改整体配色方案：</p>
+                    <div class="code-block">
+:root {
+    --primary-color: #2c3e50;    /* 主色调 */
+    --secondary-color: #3498db;  /* 次要色调 */
+    --accent-color: #e74c3c;     /* 强调色 */
+    --success-color: #2ecc71;    /* 成功色 */
+    /* 更多颜色变量... */
+}
+                    </div>
+                    
+                    <h4>4. 添加学习资源</h4>
+                    <p>在资源库部分添加新的学习资源卡片：</p>
+                    <div class="code-block">
+&lt;div class="resource-card"&gt;
+    &lt;h4&gt;资源名称&lt;/h4&gt;
+    &lt;div class="resource-meta"&gt;
+        &lt;span class="resource-type"&gt;资源类型&lt;/span&gt;
+        &lt;span class="resource-difficulty difficulty-beginner"&gt;难度&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;p&gt;资源描述&lt;/p&gt;
+    &lt;a href="资源链接" target="_blank" class="resource-link"&gt;访问资源&lt;/a&gt;
+&lt;/div&gt;
+                    </div>
+                </div>
+                
+                <div class="language-content" id="customization-en">
+                    <h3>Personalized Learning Path</h3>
+                    <p>You can easily modify the learning path to suit your own learning needs:</p>
+                    
+                    <h4>1. Modify Navigation Menu</h4>
+                    <p>Find the navigation menu section in the HTML and modify module names and structure:</p>
+                    <div class="code-block">
+&lt;ul class="nav-menu"&gt;
+    &lt;li&gt;
+        &lt;a href="#" onclick="showModule('foundation')"&gt;1. Programming Fundamentals&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#" onclick="showSubModule('python-basics')"&gt;1.1 Python Basics&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#" onclick="showSubModule('java-fundamentals')"&gt;1.2 Java Fundamentals&lt;/a&gt;&lt;/li&gt;
+            &lt;!-- Add more submodules --&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;!-- Add more main modules --&gt;
+&lt;/ul&gt;
+                    </div>
+                    
+                    <h4>2. Update Learning Modules</h4>
+                    <p>Add or modify learning modules in the learningData object:</p>
+                    <div class="code-block">
+let learningData = {
+    modules: {
+        foundation: { completed: 0, total: 4, status: 'not-started' },
+        dataStructures: { completed: 0, total: 4, status: 'not-started' },
+        // Add new module
+        newModule: { completed: 0, total: 5, status: 'not-started' }
+    },
+    // ...
+};
+                    </div>
+                    
+                    <h4>3. Customize Color Theme</h4>
+                    <p>Modify CSS variables to change the overall color scheme:</p>
+                    <div class="code-block">
+:root {
+    --primary-color: #2c3e50;    /* Primary color */
+    --secondary-color: #3498db;  /* Secondary color */
+    --accent-color: #e74c3c;     /* Accent color */
+    --success-color: #2ecc71;    /* Success color */
+    /* More color variables... */
+}
+                    </div>
+                    
+                    <h4>4. Add Learning Resources</h4>
+                    <p>Add new learning resource cards in the resource library section:</p>
+                    <div class="code-block">
+&lt;div class="resource-card"&gt;
+    &lt;h4&gt;Resource Name&lt;/h4&gt;
+    &lt;div class="resource-meta"&gt;
+        &lt;span class="resource-type"&gt;Resource Type&lt;/span&gt;
+        &lt;span class="resource-difficulty difficulty-beginner"&gt;Difficulty&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;p&gt;Resource Description&lt;/p&gt;
+    &lt;a href="Resource Link" target="_blank" class="resource-link"&gt;Access Resource&lt;/a&gt;
+&lt;/div&gt;
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="future">
+            <div class="card">
+                <h2>未来发展 / Future Development</h2>
+                
+                <div class="language-tabs">
+                    <div class="language-tab active" onclick="switchLanguage('future', 'cn')">中文</div>
+                    <div class="language-tab" onclick="switchLanguage('future', 'en')">English</div>
+                </div>
+                
+                <div class="language-content active" id="future-cn">
+                    <h3>计划中的功能增强</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-cloud"></i> <strong>云端同步</strong> - 添加云存储支持，实现多设备数据同步</li>
+                        <li><i class="fas fa-users"></i> <strong>社交功能</strong> - 添加学习社区，与同学分享进度和经验</li>
+                        <li><i class="fas fa-chart-pie"></i> <strong>高级分析</strong> - 提供更详细的学习数据分析和可视化</li>
+                        <li><i class="fas fa-code"></i> <strong>代码编辑器集成</strong> - 内置代码编辑器，支持在线练习</li>
+                        <li><i class="fas fa-gamepad"></i> <strong>更多游戏化元素</strong> - 添加排行榜、挑战任务等元素</li>
+                        <li><i class="fas fa-mobile-alt"></i> <strong>移动应用</strong> - 开发原生移动应用版本</li>
+                        <li><i class="fas fa-robot"></i> <strong>AI学习助手</strong> - 集成AI功能，提供个性化学习建议</li>
+                    </ul>
+                    
+                    <h3>技术改进方向</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-database"></i> 迁移到更强大的后端数据库</li>
+                        <li><i class="fas fa-cube"></i> 采用现代前端框架（如React或Vue）重构</li>
+                        <li><i class="fas fa-shield-alt"></i> 增强数据安全性和隐私保护</li>
+                        <li><i class="fas fa-bolt"></i> 优化性能，提升加载速度和响应能力</li>
+                    </ul>
+                    
+                    <div class="note">
+                        <p><strong>开发愿景：</strong> 打造一个全面、智能、个性化的计算机科学学习生态系统，帮助学生更高效、更有趣地掌握计算机科学知识。</p>
+                    </div>
+                </div>
+                
+                <div class="language-content" id="future-en">
+                    <h3>Planned Feature Enhancements</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-cloud"></i> <strong>Cloud Sync</strong> - Add cloud storage support for multi-device data synchronization</li>
+                        <li><i class="fas fa-users"></i> <strong>Social Features</strong> - Add learning community to share progress and experiences with classmates</li>
+                        <li><i class="fas fa-chart-pie"></i> <strong>Advanced Analytics</strong> - Provide more detailed learning data analysis and visualization</li>
+                        <li><i class="fas fa-code"></i> <strong>Code Editor Integration</strong> - Built-in code editor supporting online practice</li>
+                        <li><i class="fas fa-gamepad"></i> <strong>More Gamification Elements</strong> - Add leaderboards, challenge tasks, etc.</li>
+                        <li><i class="fas fa-mobile-alt"></i> <strong>Mobile Application</strong> - Develop native mobile app versions</li>
+                        <li><i class="fas fa-robot"></i> <strong>AI Learning Assistant</strong> - Integrate AI features for personalized learning recommendations</li>
+                    </ul>
+                    
+                    <h3>Technical Improvement Directions</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-database"></i> Migrate to more powerful backend databases</li>
+                        <li><i class="fas fa-cube"></i> Refactor using modern frontend frameworks (like React or Vue)</li>
+                        <li><i class="fas fa-shield-alt"></i> Enhance data security and privacy protection</li>
+                        <li><i class="fas fa-bolt"></i> Optimize performance for faster loading and responsiveness</li>
+                    </ul>
+                    
+                    <div class="note">
+                        <p><strong>Development Vision:</strong> Create a comprehensive, intelligent, and personalized computer science learning ecosystem to help students master computer science knowledge more efficiently and enjoyably.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Guoqing Xia | 暨南大学国际学院，计算机科学与技术专业</p>
+            <p>Jinan University International College, Computer Science & Technology</p>
+            <p>联系方式: <a href="mailto:2274743960@qq.com" style="color:white;">2274743960@qq.com</a> | 
+               GitHub: <a href="https://github.com/Phoenix-XIA" target="_blank" style="color:white;">Phoenix-XIA</a> | 
+               微信: Phoenix_XIA</p>
+        </div>
+    </footer>
+
+    <script>
+        // 语言切换功能
+        function switchLanguage(section, lang) {
+            // 更新标签状态
+            const tabs = document.querySelectorAll(`#${section} .language-tab`);
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            
+            // 更新内容显示
+            const contents = document.querySelectorAll(`#${section} .language-content`);
+            contents.forEach(content => content.classList.remove('active'));
+            
+            document.getElementById(`${section}-${lang}`).classList.add('active');
+        }
+        
+        // 返回顶部功能
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 目录链接平滑滚动
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
