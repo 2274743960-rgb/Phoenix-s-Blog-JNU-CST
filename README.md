@@ -2,7 +2,8 @@
 
 ## 📋 Project Overview / 项目概述
 <img width="2560" height="1600" alt="屏幕截图 2025-11-25 170622" src="https://github.com/user-attachments/assets/9fe43e40-c655-4c95-b2bf-8b836988a31a" />
-<img width="2560" height="1600" alt="屏幕截图 2025-11-25 170936" src="https://github.com/user-attachments/assets/aef130a6-2007-4cf4-9f2c-4f8758449311" />
+<img width="2560" height="1600" alt="屏幕截图 2025-11-25 171049" src="https://github.com/user-attachments/assets/84249977-a9f8-41f6-b2a5-69a1a0116e3b" />
+
 
 
 ### English
