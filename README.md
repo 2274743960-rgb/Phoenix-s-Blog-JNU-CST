@@ -1,6 +1,8 @@
 # Phoenix-s-Blog-JNU CST Learning Journey - 说明文档
 
 ## 📋 Project Overview / 项目概述
+<img width="2560" height="1600" alt="屏幕截图 2025-11-25 170622" src="https://github.com/user-attachments/assets/9fe43e40-c655-4c95-b2bf-8b836988a31a" />
+
 
 ### English
 **Phoenix's CS Learning Journey** is an interactive, student-centered learning dashboard designed to track and manage computer science education progress. This single-page application provides a comprehensive overview of learning modules, progress tracking, resource management, and achievement systems tailored for a Computer Science student.
